@@ -3,10 +3,10 @@
 
 
 # Git
-- CLI
-- git
+- [CLI](Git/cli.md)
+- [git](Git/git.md)
 
 
 
 # Markdown
-- markdown
+- [markdown](Markdown/markdown.md)
