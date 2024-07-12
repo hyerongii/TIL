@@ -19,7 +19,7 @@
 ---
 ### 코드블락
 
-![alt text](image.png)
+![alt text](./images/image.png)
 
 출력화면 :
 
@@ -30,7 +30,7 @@ print("world")
 
 
 ### 인라인코드
-![alt text](image-1.png)
+![alt text](./images/image-1.png)
 
 출력화면 :
 
@@ -38,7 +38,7 @@ print("world")
 
 ---
 ### 링크 첨부
-![alt text](image-2.png)
+![alt text](./images/image-2.png)
 
 출력화면 : 
 
@@ -53,7 +53,7 @@ print("world")
 ---
 ### 텍스트 관련 문법
 
-![alt text](image-3.png)
+![alt text](./images/image-3.png)
 
 출력화면 :
 
