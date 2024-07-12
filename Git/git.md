@@ -105,7 +105,7 @@
 #### - push
 
 ```cli
-git push origin master
+-> git push origin master
 ```
     원격 저장소에 commit 목록을 업로드
     -> git 아 origin이라는 이름의 원격 저장소에 master branch를 push해줘
@@ -134,7 +134,7 @@ local에 있는 branch인 master, 원격에 있는 branch인 origin/master 의 �
 
 **@@ 참고 @@ 파일명 cli로 변경하고 싶을 때**
 ```cli
-mv -f 변경하고싶은파일명 변경할파일명
+-> mv -f 변경하고싶은파일명 변경할파일명
 ```
 
 **@@ 참고 @@**
@@ -163,7 +163,7 @@ https://www.toptal.com/developers/gitignore
 
 **@@참고@@**
 ```cli
- -rm -r .git 
+->  -rm -r .git 
 
     .git 삭제
 ```
@@ -185,11 +185,11 @@ https://www.toptal.com/developers/gitignore
 
 ## Git 기타 명령어
 ```cli
-git remote -v
+-> git remote -v
 
 현재 로컬 저장소에 등록된 원격 저장소 목록 보기
 
-git remote rm 원격_저장소_이름
+-> git remote rm 원격_저장소_이름
     
 현재 로컬 저장소에 등록된 원격 저장소 삭제
 ```
@@ -198,7 +198,7 @@ git remote rm 원격_저장소_이름
 ### Git revert
 
 ```cli
-git revert (커밋 아이디)
+-> git revert (커밋 아이디)
 ```
     "재설정"
     단일 commit을 실행 취소 하는 것
@@ -216,7 +216,7 @@ git revert (커밋 아이디)
 ### Git reset
 **!! 사용시 주의 필요**
 ```cli
-git reset (커밋 아이디)
+-> git reset (커밋 아이디)
 ```
 
     "되돌리기"
@@ -238,24 +238,24 @@ git reset (커밋 아이디)
 
 ### Git reflog 
 ```cli
-git reflog (커밋 아이디)
+-> git reflog (커밋 아이디)
 ```
 
     hard reset 한 commit 복구 할 수 있음
 
 ### Git restore
 ```cli
-git restore (커밋 아이디)
+-> git restore (커밋 아이디)
 ```
     워킹디렉토리에서 파일을 수정한 뒤, 파일의 수정사항을 취소하고, 원래 모습으로 되돌리는 작업
 
 ### Staging area 에 올라간 파일을 Unstage 하기
 ```cli
-git rm --cached
+-> git rm --cached
 
 git 저장소에 커밋이 없는 경우 staging area에서 워킹 디렉토리로 내리게 함
 
-git restore --staged
+-> git restore --staged
 
 레포지토리까지 커밋이 쌓였을 때 워킹트리 클린까지 되었을 때
 이후 파일을 다시 수정 후 modified 된 것 staging area에 올린 상태일 때
