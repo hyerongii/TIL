@@ -6,7 +6,8 @@
 - [CLI](Git/cli.md)
 - [git](Git/git.md)
 
-
-
 # Markdown
 - [markdown](Markdown/markdown.md)
+
+# Python
+- [python](Python/python.md)
