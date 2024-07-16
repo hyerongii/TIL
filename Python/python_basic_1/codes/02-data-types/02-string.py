@@ -31,5 +31,5 @@ print(my_str[::-1])  # olleh
 # 길이
 print(len(my_str))  # 5
 
-# TypeError: 'str' object does not support item assignment
+# TypeError: 'str' object does not support item assignment -> 문자열은 불변
 my_str[1] = 'z'
