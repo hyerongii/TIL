@@ -75,8 +75,8 @@ https://www.jetbrains.com/ko-kr/lp/devecosystem-2023/
 
 ![image](https://github.com/ragu6963/TIL/assets/32388270/39aa9d7f-aa5b-44eb-a661-dae74c4af7b2)
 
-### 타입
-#### 타입(Type)
+## 타입
+### 타입(Type)
 - 변수나 값이 가질 수 있는 데이터의 종류를 의미
 - 어떤 종류의 데이터인지, 어떻게 해석되고 처리되어야 하는지를 정의
 - 타입은 2가지 요소로 이루어짐 
@@ -84,16 +84,16 @@ https://www.jetbrains.com/ko-kr/lp/devecosystem-2023/
 
 ![image](https://github.com/ragu6963/TIL/assets/32388270/8124c2d4-f2b7-4c29-b11f-b08fb478b5d8)
 
-#### 데이터 타입
-- Numeric Types
-    - int (정수), float (실수), complex (복소수)
-- Sequence Types
+### 데이터 타입
+#### - Numeric Types
+    int (정수), float (실수), complex (복소수)
+#### - Sequence Types
     - list, tuple, range
-- Text Sequence Type
+#### - Text Sequence Type
     - str (문자열)
-- Non-sequence Types
+#### - Non-sequence Types
     - set, dict
-- 기타
+#### - 기타
     - None, Boolean, Functions
 
 #### 데이터 타입의 중요성
@@ -122,7 +122,7 @@ https://www.jetbrains.com/ko-kr/lp/devecosystem-2023/
 #### 연산자 우선순위 예시
 
 ```python
-# -16
+# -16  (지수 먼저 계산됨)
 -2 ** 4
 
 # -16
@@ -142,7 +142,7 @@ https://www.jetbrains.com/ko-kr/lp/devecosystem-2023/
 
 #### 할당문
 ```python
-degrees == 36.5
+degrees == 36.5 # (x) 수학에서 같다는 의미로 사용됨
 ```
 - “변수 degrees는 값 36.5이다”
 -> 프로그래밍에서는 아래와 같이 '할당' 사용
@@ -193,10 +193,10 @@ degrees = 'abc'
 ![image](https://github.com/ragu6963/TIL/assets/32388270/21737370-e926-4b74-9055-436ed9e26270)
 1. 할당 연산자(=) 오른쪽에 있는 표현식을 평가해서 값(메모리 주소)을 생성
 2. 값의 메모리 주소를 ‘=‘ 왼쪽에 있는 변수에 저장
-- 존재하지 않는 변수라면
-    - 새 변수를 생성
-- 기존에 존재했던 변수라면
-    - 기존 변수를 재사용해서 변수에 들어 있는 메모리 주소를 변경
+    - 존재하지 않는 변수라면
+        - 새 변수를 생성
+    - 기존에 존재했던 변수라면
+        - 기존 변수를 재사용해서 변수에 들어 있는 메모리 주소를 변경
 
 #### 변수에 재할당
 - 변수 double의 값은 무엇일까?
@@ -220,19 +220,6 @@ degrees = 'abc'
     ```
 ![image](https://github.com/ragu6963/TIL/assets/32388270/b1095d47-ba4b-4994-aff2-f70d63d844b6)
 
-#### 변수명 규칙
-- 영문 알파벳, 언더스코어(_), 숫자로 구성
-- 숫자로 시작할 수 없음
-- 대소문자를 구분
-- 아래 키워드는 파이썬의 내부 예약어로 사용할 수 없음
-
-    ```python
-    ['False', 'None', 'True', '__peg_parser__', 'and', 'as', 'assert', 
-    'async', 'await', 'break', 'class', 'continue', 'def', 'del', 
-    'elif', 'else', 'except', 'finally', 'for', 'from', 'global', 
-    'if', 'import', 'in', 'is', 'lambda', 'nonlocal', 'not', 
-    'or', 'pass', 'raise', 'return', 'try', 'while', 'with', 'yield']
-    ```
 
 ## 참고
 ### Style Guide
