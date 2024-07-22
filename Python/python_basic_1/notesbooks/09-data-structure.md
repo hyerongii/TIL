@@ -83,6 +83,7 @@ print(numbers)  # [1, 2, 3, 4]
 > is 붙은 함수는 T/F 반환 함. 함수 만들 때도 T/F 반환하면 is 붙이기!
 
 #### .find(x)
+** find랑 index 헷갈리지 않기!!
 
 - x의 첫 번째 위치를 반환. 없으면, -1을 반환
 
@@ -162,6 +163,7 @@ print(numbers)  # [1, 2, 3, 4]
     new_text = text.strip()
     print(new_text) # 'Hello, world!'
     ```
+> rstrip([chars]), lstrip([chars]) : 입력 데이터 공백 없앨 때 사용함
 
 ##### .split(sep=None, maxsplit=-1)
 
@@ -171,6 +173,9 @@ print(numbers)  # [1, 2, 3, 4]
     text = 'Hello, world!'
     words = text.split(',')
     print(words) # ['Hello', ' world!']
+
+    # .split() : 공백일시 스페이스를 기준으로 분리
+    # () 공백으로 메서드 사용시 기본값이 들어가서 함수 작업 수행중
     ```
 
 ##### ‘separator’.join(iterable)
@@ -199,19 +204,19 @@ print(numbers)  # [1, 2, 3, 4]
     ```
 #### 메서드 이어서 사용하기
 
-- 모든 메서드는 이어서 사용 가능
+- 모든 메서드는 이어서 사용 가능 (=cascading)
 
     ```python
     text = 'heLLo, woRld!'
 
     new_text = text.swapcase().replace('l', 'z')
-    # replace 진행 하고 리턴 값 있어야 함. 데이터 타입도 일치해야 함.
+    # swapcase 먼저 진행 하고 리턴 값 있어야 함. 데이터 타입(소문자)도 일치해야 함.
 
     print(new_text) # HEzzO, WOrLD!
     ```
 
 ### 리스트
-#### 리스트 값 추가 및 삭제 메서드
+#### 리스트 값 추가 및 삭제 메서드 (반드시 외우자! == 예시코드를 만들어 볼 수 있다.)
 |          메서드         	|                                                   설명                                                  	|
 |:-----------------------:	|:-------------------------------------------------------------------------------------------------------:	|
 |        L.append(x)      	|     리스트   마지막에 항목 x를   추가                                                                   	|
@@ -342,6 +347,23 @@ print(numbers)  # [1, 2, 3, 4]
     my_list.sort(reverse=True)
     print(my_list)  # [3, 2, 1]
     ```
+
+## 비시퀀스 데이터 구조
+### 세트 (set)
+- 고유한 항목들의 정렬되지 않은 컬렉션
+
+#### 세트 메서드
+|           메서드          	|                                설명                               	|
+|:-------------------------:	|:-----------------------------------------------------------------:	|
+|          s.add(x)         	|     세트 s에 항목   x를 추가. 이미   x가 있다면 변화 없음         	|
+|          s.clear()        	|     세트 s의   모든 항목을   제거                                 	|
+|         s.remove(x)       	|     세트 s에서   항목 x를 제거. 항목   x가 없을 경우 Key error    	|
+|           s.pop()         	|     세트 s에서   랜덤하게 항목을 반환하고,   해당 항목을 제거     	|
+|        s.discard(x)       	|     세트 s에서   항목 x를 제거                                    	|
+|     s.update(iterable)    	|     세트 s에   다른 iterable 요소를   추가                        	|
+
+
+
 
 ### 참고
 [python 공식 자료구조 페이지](https://docs.python.org/ko/3.9/tutorial/datastructures.html#)

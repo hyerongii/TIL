@@ -1,10 +1,11 @@
 # find
 text = 'banana'
-print(text.find('a'))
-print(text.find('z'))
+print(text.find('a')) # 1
+print(text.find('z')) # -1
+print(text.find('ba')) # 0
 
 # index
-print(text.index('a'))
+print(text.index('a')) # 1
 #print(text.index('z')) # 찾고자 하는 인자가 없을 시 Error 남
 
 # isupper/islower
