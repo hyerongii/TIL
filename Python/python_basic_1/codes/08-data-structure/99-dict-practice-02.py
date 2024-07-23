@@ -20,14 +20,17 @@ def dict_invert(input_dict):
 def dict_invert(input_dict):
     reverse_dict = {}
 
-    for k in input_dict.keys():
+    # for k in input_dict.keys():
 
-        if input_dict.get(k) not in reverse_dict.keys():
-            value_list = [k]
-            reverse_dict[input_dict.get(k)] = value_list
-        else: 
-            value_list.append(k)
-            reverse_dict[input_dict.get(k)] = value_list
+    #     if input_dict.get(k) not in reverse_dict.keys():
+    #         value_list = [k]
+    #         reverse_dict[input_dict.get(k)] = value_list
+    #     else: 
+    #         value_list.append(k)
+    #         reverse_dict[input_dict.get(k)] = value_list
+
+    for k, v in input_dict.items():
+        reverse_dict[v] = reverse_dict.get(v,[]) + [k]
             
     return reverse_dict
 
@@ -36,15 +39,18 @@ def dict_invert(input_dict):
 def dict_invert(input_dict):
     reverse_dict = {}
 
-    for k in input_dict.keys():
+    # for k in input_dict.keys():
 
-        if input_dict.get(k) not in reverse_dict.keys():
-            value_list = [k]
-            reverse_dict.setdefault(input_dict.get(k), value_list)
-        else: 
-            value_list.append(k)
-            reverse_dict.setdefault(input_dict.get(k), value_list)
-            
+    #     if input_dict.get(k) not in reverse_dict.keys():
+    #         value_list = [k]
+    #         reverse_dict.setdefault(input_dict.get(k), value_list)
+    #     else: 
+    #         value_list.append(k)
+    #         reverse_dict.setdefault(input_dict.get(k), value_list)
+
+    for k, v in input_dict.items():
+        reverse_dict.setdefault(v,[]).append(k)
+
     return reverse_dict
 
 
