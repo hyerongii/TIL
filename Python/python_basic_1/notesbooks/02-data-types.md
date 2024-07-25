@@ -62,6 +62,7 @@
 #### 실수 연산시 주의사항
 
 - 컴퓨터는 2진수를 사용, 사람은 10진법을 사용
+
 - 이때 10진수 0.1은 2진수로 표현하면 0.0001100110011001100110... - 같이 무한대로 반복
 - 무한대 숫자를 그대로 저장할 수 없어서 사람이 사용하는 10진법의 근사값만 표시
 - 0.1의 경우 3602879701896397 / 2 ** 55 이며 0.1에 가깝지만 정확히 동일하지는 않음
@@ -160,7 +161,7 @@ print('문자열 안에 "큰따옴표"를 사용하려면 작은 따옴표로 �
 
 #### Escape sequence
 
-- 역슬래시(backslash, `/`) 뒤에 특정 문자가 와서 튻한 기능을 하는 문자 조합
+- 역슬래시(backslash, `/`) 뒤에 특정 문자가 와서 특수한 기능을 하는 문자 조합
 - 파이썬의 일반적인 문법 규칙을 잠시 탈출한다는 의미
 
 |     예약   문자    	|      내용(의미)    	|
@@ -247,51 +248,44 @@ print(len(my_str)) # 5
 ```python
 my_str = 'hello'
 my_str[2:4]
+
+# ll
 ```
-|         "    	|      h    	|      e    	|      <span style='color:red;'>l</span>    	|      <span style='color:red;'>l</span>    	|      o    	|     "    	|
-|-------------:	|:---------:	|:---------:	|:---------:	|:---------:	|:---------:	|----------	|
-|     index    	|      0    	|      1    	|      <span style='color:yellow;'>2</span>    	|      <span style='color:yellow;'>3</span>    	|      4    	|          	|
-|     index    	|     -5    	|     -4    	|     -3    	|     -2    	|     -1    	|          	|
 
 
 ```python
 my_str = 'hello'
 my_str[:3]
+
+# hel
 ```
-|         "    	|      <span style='color:red;'>h</span>    	|      <span style='color:red;'>e</span>    	|      <span style='color:red;'>l</span>    	|      l    	|      o    	|     "    	|
-|-------------:	|:---------:	|:---------:	|:---------:	|:---------:	|:---------:	|----------	|
-|     index    	|      <span style='color:yellow;'>0</span>    	|      <span style='color:yellow;'>1</span>    	|      <span style='color:yellow;'>2</span>    	|      3    	|      4    	|          	|
-|     index    	|     -5    	|     -4    	|     -3    	|     -2    	|     -1    	|          	|
+
 
 ```python
 my_str = 'hello'
 my_str[3:]
+
+# lo
 ```
-|         "    	|      h    	|      e    	|      l    	|      <span style='color:red;'>l</span>    	|      <span style='color:red;'>o</span>    	|     "    	|
-|-------------:	|:---------:	|:---------:	|:---------:	|:---------:	|:---------:	|----------	|
-|     index    	|      0    	|      1    	|      2    	|      <span style='color:yellow;'>3</span>    	|      <span style='color:yellow;'>4</span>    	|          	|
-|     index    	|     -5    	|     -4    	|     -3    	|     -2    	|     -1    	|          	|
+
 
 - step을 지정하여 추출
 ```python
 my_str = 'hello'
 my_str[0:5:2] # 0부터 5까지 2씩 뛰어서
+
+# hlo
 ```
-|         "    	|      <span style='color:red;'>h</span>    	|      e    	|      <span style='color:red;'>l</span>    	|      l    	|      <span style='color:red;'>o</span>    	|     "    	|
-|-------------:	|:---------:	|:---------:	|:---------:	|:---------:	|:---------:	|----------	|
-|     index    	|      <span style='color:yellow;'>0</span>    	|      1    	|      <span style='color:yellow;'>2</span>    	|      3    	|      <span style='color:yellow;'>4</span>    	|          	|
-|     index    	|     -5    	|     -4    	|     -3    	|     -2    	|     -1    	|          	|
+
 
 - **step이 음수일 경우**
 ```python
 my_str = 'hello'
 my_str[::-1]
+
+# olleh
 ```
 
-|         "    	|      <span style='color:red;'>h</span>    	|      <span style='color:red;'>e</span>    	|      <span style='color:red;'>l</span>    	|      <span style='color:red;'>l</span>    	|      <span style='color:red;'>o</span>    	|     "    	|
-|-------------:	|:---------:	|:---------:	|:---------:	|:---------:	|:---------:	|----------	|
-|     index    	|      0    	|      1    	|      2    	|      3    	|      4    	|          	|
-|     index    	|     <span style='color:yellow;'>-5</span>    	|     <span style='color:yellow;'>-4</span>    	|     <span style='color:yellow;'>-3</span>    	|     <span style='color:yellow;'>-2</span>    	|     <span style='color:yellow;'>-1</span>    	|          	|
 
 #### <span style='color:red;'>문자열은 불변 (변경 불가)</span>
 
@@ -324,7 +318,7 @@ my_str[1:4][::-1]  # lle
 
 ### list `리스트`
 
-- 여러 개의 값을 순서대로 저장하는 변경 가능한 시퀀스 자료형
+- 여러 개의 값을 순서대로 저장하는 **변경 가능한** 시퀀스 자료형
 
 #### 리스트 표현
 
@@ -533,9 +527,9 @@ x, y = 10, 20
     my_set_2 = {1, 2, 3}
     my_set_3 = {1, 1, 1} # 중복이 존재할 수 없음, 순서 없음, 인덱스 없음
 
-    print(my_set_1)
-    print(my_set_2)
-    print(my_set_3)
+    print(my_set_1)  # set()
+    print(my_set_2)  # {1, 2, 3}
+    print(my_set_3)  # {1}
     ```
 
 #### 세트의 집합 연산
@@ -546,7 +540,7 @@ x, y = 10, 20
     my_set_2 = {3, 6, 9}
 
     # 합집합
-    print(my_set_1 | my_set_2)  # {1, 2, 3, 6, 9} # shift + \ == |
+    print(my_set_1 | my_set_2)  # {1, 2, 3, 6, 9} 
 
     # 차집합
     print(my_set_1 - my_set_2)  # {1, 2}
