@@ -268,6 +268,13 @@ my_str[3:]
 # lo
 ```
 
+```python
+my_str = 'hello'
+my_str[-5:-1]
+
+# hell
+```
+
 
 - step을 지정하여 추출
 ```python
