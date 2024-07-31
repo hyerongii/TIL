@@ -14,8 +14,8 @@ for test_case in range(1, T + 1):
         window = [1] * num
 
         # window를 수열에 있는지 확인
-        for i in range(N):
+        for i in range(N-num):
             if arr[i:i+num] == window:
-                max_num += num
+                max_num = num
         
     print(f'#{test_case} {max_num}')
