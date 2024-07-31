@@ -3,10 +3,11 @@
 ## 개념 
 
 ### 1. 파이썬 기초 문법
-- [01. fundamentals of python(파이썬 기초)](문법/정리본/01-fundamentals-of-python.ipynb)
-- [02. data types(데이터 타입)](문법/정리본/02-data-types.ipynb)
+- [01. fundamentals of python(파이썬 기초)](문법/정리본/01-fundamentals-of-python.md)
+- [02. data types(데이터 타입)](문법/정리본/02-data-types.md)
 - [03. type conversion(형변환)](문법/정리본/03-type-conversion.ipynb)
 - [04. operator(연산자)](문법/정리본/04-operator.ipynb)
+- [99. copy(복사)](문법/정리본/99-copy.md)
 
 ### 2. 함수와 제어문
 - [05. functions(함수)](문법/정리본/05-functions.ipynb)

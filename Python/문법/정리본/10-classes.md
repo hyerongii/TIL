@@ -857,3 +857,73 @@ print(baby1.gene) # XY  # 아빠 먼저 상속 받아서 이렇게 됨
 - 코드의 가독성, 유지보수성, 재사용성을 높이는데 도움을 줌
 
 ### 매직 메서드 
+- 특별한 인스턴스 메서드
+- 특정 상황에 자동으로 호출되는 메서드
+- Double underscore(`__`)가 있는 메서드는 특수한 동작을 위해 만들어진 메서드
+    - 스페셜 메서드 혹은 매직 메서드라고 불림
+- 예시
+    ```python
+    __str__(self)
+    __len__(self)__
+    __lt__(self, other)
+    __le__(self, other)
+    __eq__(self, other)
+    __gt__(self, other)
+    __ge__(self, other)
+    __ne__(self, other)
+    ```
+
+#### 매직 메서드 예시
+- `__str__(self)`
+  - 내장함수 print에 의해 호출되어 객체 출력을 문자열 표현으로 변경
+
+```python
+class Circle:
+    def __init__(self, r):
+        self.r = r
+
+    def __str__(self):
+        return f'원의 반지름: {self.r}'
+    
+c1 = Circle(10)
+c2 = Circle(1)
+
+print(c1) # 원의 반지름: 10
+print(c2) # 원의 반지름: 1
+```
+
+### 데코레이터 (Decorator)
+- 다른 함수의 코드를 유지한 채로 수정하거나 확장하기 위해 사용되는 함수
+
+#### 데코레이터 정의
+```python
+def my_decorator(func):
+    def wrapper():
+        # 함수 실행 전에 수행할 작업
+        print('함수 실행 전')
+        # 원본 함수 호출
+        result = func()
+        # 함수 실행 후에 수행할 작업
+        print('함수 실행 후')
+        return result
+    return wrapper
+```
+
+#### 데코레이터 사용
+
+```python
+@my_decorator
+def my_function():
+    print('원본 함수 실행')
+my_function()
+
+"""
+함수 실행 전
+원본 함수 실행
+함수 실행 후
+"""
+```
+#### 절차 지향과 객체 지향은 대조되는 개념이 아니다
+- 객체 지향은 기존 절차 지향을 기반으로 두고 보완하기 위해<br>
+객체라는 개념을 도입해 상속, 코드 재사용성, 유지보수성 등의 이점을 가지는 패러다임 
+

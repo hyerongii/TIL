@@ -7,7 +7,7 @@
 
 - 컴퓨터 분야에서 알고리즘을 표현하는 방법은 크게 두 가지
     - 의사코드(슈도코드, pseudocode)와 순서도
-    ![alt text](image.png)
+    ![alt text](images/image-7.png)
 
 ## 알고리즘의 성능
 
@@ -34,19 +34,19 @@
     - 빅-오 표기법
     - 시간 복잡도 함수 중에서 가장 큰 영향력을 주는 n에 대한 항만을 표시
     - 계수(coefficient)는 생략하여 표시
-    ![alt text](image-1.png)
+    ![alt text](images/image-1.png)
     - n개의 데이터를 입력 받아 저장한 후 각 데이터에 1씩 증가시킨 후 각 데이터를 화면에 출력하는 알고리즘의 시간복잡도는?  ->  **O(n)**
 
 ### 다양한 시간 복잡도의 비교
 - 요소 수가 증가함에 따라 각기 다른 시간복잡도의 알고리즘은 아래와 같은 연산 수를 보인다.
 
-    ![alt text](image-2.png)
+    ![alt text](images/image-2.png)
 
 ## 배열
 
 - 일정한 자료형의 변수들을 하나의 이름으로 열거하여 사용하는 자료구조
 - 6개의 변수를 사용해야 하는 경우, 이를 배열로 바꾸어 사용하는 예
-    ![alt text](image-3.png)
+    ![alt text](images/image-3.png)
 
 ### 배열의 필요성
 
@@ -89,16 +89,11 @@ Q. N개의 양의 정수에서 가장 큰 수와 가장 작은 수의 차이를 
 
 ```py
 T = int(input())
-for test_case in list(map(int, input().splitlines())):
-
-
-
+for test_case in list(1, T+1):
+    N = int(input())
+    arr = list(map(int, input().split()))
 ```
-Q. 상자 값 차이 최대인 수 
 
-```py
-
-```
 
 ## 정렬
 
