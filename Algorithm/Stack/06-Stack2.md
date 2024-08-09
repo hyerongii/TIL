@@ -89,6 +89,37 @@
     2. 각 노드가 유망한지를 점검
     3. 만일 그 노드가 유망하지 않으면, 그 노드의 부모 노드로 돌아가서 검색
 
+- 코드의 형태
+    ```py
+    def 재귀함수(n):
+        if 정답이면:
+            출력 or 저장
+        else: 정답이 아니면:
+            for 모든 자식 노드에 대해서:
+                if 정답에 유망하다면(답의 가능성이 있으면):
+                    자식노드로 이동
+                    재귀함수(n+1)
+                    부모노드로 이동
+    ```
+    > 백트래킹의 경우 유망 조건을 따로 함수로 만들어줘서 아래와 같이 구성하는 경우가 많다
+
+    ```py
+    def 백트래킹(n):
+        if 정답이면:
+            출력 or 저장
+        else:
+            for 모든 자식 노드에 대해:
+                if 유망한지확인(m):
+                    자식노드로 이동
+                    백트래킹(n+1)
+                    부모노드로 이동
+
+    def 유망한지확인(m):
+        if 조건에 안맞으면:
+            return False
+        return True
+    ```
+
 #### 미로 찾기
 
 - 아래 그림과 같이 입구와 출구가 주어진 미로에서 입구부터 출구까지의 경로를 찾는 문제
@@ -111,3 +142,172 @@
 - 상태 공간 트리
     ![alt text](images/image-25.png)
 
+#### 부분집합
+
+- 어떤 집합의 공집합과 자기자신을 포함한 모든 부분집합을 powerset이라고 하며 구하고자 하는 어떤 집합의 원소 개수가 n일 경우 부분집합의 개수는 2**n 개 이다.
+
+- 백트래킹 기법으로 powerset을 만들어보자
+    - 앞에서 설명한 일반적인 백트래킹 접근 방법을 이용한다.
+    - n개의 원소가 들어있는 집합의 2**n개의 부분집합을 만들 때는, true 또는 false값을 가지는 항목들로 구성된 n개의 배열을 만드는 방법을 이용
+    - 여기서 배열의 i번째 항목은 i번째의 원소가 부분집합의 값인지 아닌지를 나타내는 값이다.
+
+- 각 원소가 부분집합에 포함되었는지를 loop 이용하여 확인하고 부분집합을 생성하는 방법
+    ```py
+    bit = [0,0,0,0]
+    for i in range(2):
+        bit[0] = i                  #0번째 원소
+        for j in range(2):
+            bit[1] = j              #1번째 원소
+            for k in range(2):
+                bit[2] = k          #2번째 원소
+                for l in range(2)
+                    bit[3] = l      #3번째 원소
+                    print(bit)      #생성된 부분집합 출력
+    ```
+    ![alt text](images/image-26.png)
+
+- powerset을 구하는 백트래킹 알고리즘
+
+    ```py
+    def backtrack(a, k, n): # a 주어진 배열, k 결정할 원소, n 원소 개수
+        c = [0] * MAXCANDIDATES
+
+        if k == n:
+            process_solution(a,k) # 답이면 원하는 작업을 한다
+        else:
+            ncandidates = construct_candidates(a,k,n,c)
+            for i in range(ncandidates):
+                a[k] = c[i]
+                backtrack(a, k+1, n) 
+
+    def construct_candidates(a, k, n, c):
+        c[0] = True
+        c[1] = False
+        return 2
+
+    def process_solution(a, k):
+        for i in range(k):
+            if a[i]:
+                print(num[i], end = '')
+        print()
+
+    MAXCANDIDATES = 2
+    NMAX = 4
+    a = [0] * NMAX
+    num = [1,2,3,4]
+    backtrack(a,0,3)
+
+#### 순열
+
+- 예) 집합 {1,2,3}에서 모든 순열을 생성하는 함수
+    - 동일한 숫자가 포함되지 않았을 때, 각 자리 수 별로 loop을 이용해 아래와 같이 구현할 수 있다.
+
+    ```py 
+    for i1 in range(1,4):
+        for i2 in range(1,4):
+            if i2 != i1:
+                for i3 in range(1,4):
+                    if i3 != i1 and i3 != i2:
+                        print(i1,i2,i3)
+    ```
+
+    ![alt text](images/image-27.png)
+
+- 백트래킹을 이용하여 {1, 2, 3, ..., NMAX}에 대한 순열 구하기
+    - 접근 방법은 앞의 부분집합 구하는 방법과 유사하다.
+
+    ```py
+    def backtrack(a, k, n):
+        c = [0] * MAXCANDIDATES
+
+        if k == n:
+            for i in range(0,k):
+                print(a[i], end=" ")
+            print()
+        else:
+            ncandidates = construct_candidates(a,k,n,c)
+            for i in range(ncandidates):
+                a[k] = c[i]
+                backtrack(a,k+1,n)
+
+    def construct_candidates(a, k, n ,c):
+        in_perm = [False]*(NMAX +1)
+
+        for i in range(k):
+            in_perm[a[i]] = True
+        
+        ncandidates = 0
+        for i in range(1, NMAX +1):
+            if in_perm[i] == False:
+                c[ncandidates] = i
+                ncandidates += 1
+        return ncandidates
+
+    MAXCANDIDATES = 3
+    NMAX = 3
+    a = [0]*NMAX
+    backtrack(a,0,3)
+    ```
+
+- **다른 방법@@ 이 방법이 더 쉬운듯**
+    ```py
+    array = [1,2,3]
+    k = 2
+    used = [False for i in range(len(array))]
+
+    def backtrack_perm(arr):       # 중복원소 포함
+        if len(arr)==k:
+            print(arr, end=" ")
+            return arr
+
+        for i in range(len(array)):
+            if used[i]==False:
+                used[i] = True
+                backtrack_perm(arr+[array[i]])
+                used[i] = False
+
+    def backtrack_comb(idx, arr):  # 중복원소 제외
+        if len(arr)==k:
+            print(arr, end=" ")
+            return arr
+
+        for i in range(idx+1, len(array)):
+            if used[i]==False:
+                used[i] = True
+                backtrack_comb(i, arr+[array[i]])
+                used[i] = False
+
+    backtrack_perm([])
+    # [1, 2] [1, 3] [2, 1] [2, 3] [3, 1] [3, 2]
+
+    backtrack_comb(-1, [])
+    # [1, 2] [1, 3] [2, 3] 
+    ```
+
+#### 가지치기
+
+- 부분 집합의 합
+    ![alt text](images/image-28.png)
+    ![alt text](images/image-29.png)
+    ![alt text](images/image-30.png)
+    ![alt text](images/image-31.png)
+
+    ```py
+    def f(i,k): # bit[i]를 결정하는 함수
+        if i == K: # 모든 원소에 대해 결정하면 
+            s = 0  # 부분집합의 합 저장
+            for j in range(K):
+                if bit[j]:  # bit[j] 가 0이 아니면
+                    print(a[j], end=' ')
+                    s += a[j]
+            print(' : ',s) # 부분집합을 한 행에 표시
+        else:
+            #bit[i] = 1
+            #f(i+1, K)
+            #bit[i] = 0
+            #f(i+1, K)
+            for j in [1, 0]:
+                bit[i] = j
+                f(i+1, K)
+
+    ```
