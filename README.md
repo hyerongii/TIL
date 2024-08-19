@@ -1,17 +1,20 @@
 # TIL (Today I Learned)
 ### 하루하루 배운 것들을 기록하는 중입니다 ^.^$ 
 
-# Algorithm
+## Algorithm
 - [algorithm](Algorithm/algorithm.md)
 
-# Python
+## Python
 - [python](Python/python.md)
 
-# Git
+## Git
 - [CLI](Git/cli.md)
 - [git](Git/git.md)
 
-# Markdown
+## Markdown
 - [markdown](Markdown/markdown.md)
 
-# Web
+## Web
+- [html](Web/HTML/html.md)
+- [css](Web/CSS/css.md)
+
