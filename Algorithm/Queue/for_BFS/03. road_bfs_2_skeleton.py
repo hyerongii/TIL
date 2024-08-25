@@ -2,7 +2,6 @@ import sys
 from collections import deque
 sys.stdin = open('practice_input.txt')
 
-
 def get_road_move_time(road, n, m):
     dxy = [[1,0], [0,1], [-1,0], [0, -1]]
 
@@ -37,12 +36,6 @@ def get_road_move_time(road, n, m):
             if nx == n-1 and ny == m-1:
                 return n_dist
     return -1
-
-
-
-
-
-
 
 
 n, m = map(int, input().split())  # 도로의 크기 n * m 입력 받기
