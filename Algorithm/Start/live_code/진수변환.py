@@ -1,3 +1,41 @@
+# pythonic 방법
+
+# 10진수를
+# 2진수로 변환. 주의 문자열..!
+print(bin(10))
+# 8진수
+print(oct(10))
+# 16진수
+print(hex(10))
+
+# 16진법 -> 10진법
+print(int("F", base=16))
+# 2진법 -> 10진법
+print(int("1010", base=2))
+
+print(bin(8)[2:]) # 4bit로 표기 -> 전처리
+print(bin(1)[2:]).zfill(4) # 문자열에 남는 수 다 0 넣어줌
+
+for i in range(16):               # 이거 사용하면 2진법으로 만들어주기 가능
+    print(bin(i)[2:].zfill(4))  
+
+# 만약 2진법: 16진법인 딕셔너리 만들고 싶다면
+bin_to_hex = {}
+for i in range(16):
+    print(bin(i)[2:].zfill(4))
+    print(hex(i)[2:])
+    print(f'16진수 변환 소문자: {i:x}')
+    print(f'16진수 변환 소문자: {i:X}')
+    print(f'2진수 변환: {i:04b}')
+    bin_to_hex[f'{i:04b}'] = f'{i:x}'
+    # bin_to_hex[bin(i)[2:].zfill(4)] = hex(i)[2:]
+print(bin_to_hex)
+
+# 16진법: 2진법인 딕셔너리 만들고 싶다면
+hex_to_bin = {f'{i:X}': f'{i:04b}' for i in range(16)}
+print(hex_to_bin)
+
+
 # 2진수로 변환
 def decimal_to_binary(n):
     binary_number = ""
@@ -38,3 +76,4 @@ hex_num = decimal_to_hexadecimal(decimal_num)
 
 print(f"{decimal_num} - 2진수: {binary_num}")
 print(f"{decimal_num} - 16진수: {hex_num}")
+
