@@ -40,4 +40,24 @@ VALUES
 
 -- INNER JOIN
 
+SELECT * FROM articles
+INNER JOIN users
+  ON users.id = articles.userId;
+
+-- 1번 회원 (하석주) 가 작성한 모든 게시글의 제목과 작성자명을 조회
+SELECT * FROM articles
+INNER JOIN users
+  ON users.id = articles.userId
+WHERE users.id = 1;
+
 -- LEFT JOIN
+SELECT * FROM articles
+LEFT JOIN users
+  ON users.id = articles.userId;
+
+-- 게시글을 작성한 이력이 없는 회원 정보 조회
+SELECT users.name
+FROM users
+LEFT JOIN articles
+  ON articles.userId = users.id
+WHERE articles.userId IS NULL;
