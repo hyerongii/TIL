@@ -10,6 +10,7 @@
 
   {% if request.user.is_authenticated %}
     <p>안녕하세요 {{ user.username }}</p>
+    <a href="{% url "accounts:profile" user.username %}">내 프로필</a>
     <a href="{% url "articles:create" %}">CREATE</a>
     <form action="{% url "accounts:logout" %}" method="POST">
       {% csrf_token %}
@@ -25,8 +26,9 @@
     <a href="{% url "accounts:signup" %}">회원가입</a>
   {% endif %}
 
-  
+  <hr>
   {% for article in articles %}
+    <a href="{% url "accounts:profile" article.user.username %}">프로필</a>
     <p>작성자: {{ article.user.username }}</p>
     <p>글 번호: {{ article.pk }}</p>
     <a href="{% url "articles:detail" article.pk %}">

@@ -5,6 +5,7 @@ from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm
 from django.contrib.auth.decorators import login_required
 from .forms import CustomUserCreationForm, CustomUserChangeForm
+from django.contrib.auth import get_user_model
 
 
 # Create your views here.
@@ -83,3 +84,32 @@ def change_password(request, user_pk):
         'form': form,
     }
     return render(request, 'accounts/change_password.html', context)
+
+def profile(request, username):
+    # 어떤 유저의 프로필을 보여줄건지 유저를 조회(username을 사용해서 조회)
+    User = get_user_model()
+    person = User.objects.get(username=username)
+    # person = get_user_model().objects.get(username=username)
+    context={
+        'person':person,
+    }
+    return render(request, 'accounts/profile.html', context)
+
+def follow(request, user_pk):
+    User = get_user_model()
+    # 팔로우 요청을 보내는 대상
+    you = User.objects.get(pk=user_pk)
+    # 나 (팔로우 요청하는 사람)
+    me = request.user
+
+    # 나와 팔로우 대상자가 같지 않은 경우만 진행
+    if me != you:
+        # 만약 내가 상대방의 팔로워 목록에 이미 있다면 팔로우 취소
+        if me in you.followers.all():
+            you.followers.remove(me)
+            # 위와 아래는 같은 것 삭제함. 방향성의 문제일 뿐
+            # me.followings.remove(you)
+        else:
+            you.followers.add(me)
+            # me.followings.add(you)
+    return redirect('accounts:profile', you.username)
