@@ -28,7 +28,35 @@
 
     // 1. 클래스 속성 조작
     
+    // h1 요소를 선택
+    const h1tag = document.querySelector('.heading')
+    
+    // h1 요소의 클래스 목록 확인
+    console.log(h1tag.classList)
+
+    // h1 요소의 클래스 목록에 red 클래스 추가
+    h1tag.classList.add('red')
+    console.log(h1tag)
+
+    // h1tag.classList.remove('red')
+    // console.log(h1tag.classList)
+
+    h1tag.classList.toggle('red')
+    console.log(h1tag.classList)
+
     // 2. 일반 속성 조작
+    // a요소 선택
+    const atag = document.querySelector('a')
+    console.log(atag.getAttribute('href'))
+
+    // a 요소의 href 속성을 naver로 변경
+    atag.setAttribute('href', 'https://www.naver.com/')
+    console.log(atag.getAttribute('href'))
+
+    // a 요소의 href 속성 값 삭제 
+    atag.removeAttribute('href')
+    console.log(atag.getAttribute('href'))
+
   </script>
 </body>
 

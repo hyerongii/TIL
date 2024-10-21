@@ -14,12 +14,19 @@
 
   <script>
     // 생성
-    
+    const h1Tag = document.createElement('h1')
+    console.log(h1Tag)
+    h1Tag.textContent = '제목'
+    console.log(h1Tag)
 
     // 추가
-    
+    const divTag = document.querySelector('div')
+    divTag.appendChild(h1Tag)
+    console.log(divTag)
 
     // 삭제
+    const pTag = document.querySelector('p')
+    divTag.removeChild(pTag)
     
   </script>
 </body>
