@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const names = ['Alice', 'Bella', 'Cathy']
+
+    // pop : 배열 끝 요소를 제거
+    console.log(names.pop()) // Cathy
+    console.log(names) // ['Alice', 'Bella']
+
+    // push : 배열 끝 요소를 추가
+    names.push('Dan')
+    console.log(names) // ['Alice', 'Bella', 'Dan']
+
+    // shift : 배열 앞 요소를 제거
+    console.log(names.shift()) // Alice
+    console.log(names) // ['Bella', 'Dan']
+
+    // unshift : 배열 앞 요소를 추가
+    names.unshift('Eric')
+    console.log(names) // ['Eric', 'Bella', 'Dan']
+  </script>
+</body>
+
+</html>
