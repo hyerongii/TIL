@@ -15,6 +15,9 @@
 - [markdown](Markdown/markdown.md)
 
 ## Web
-- [html](Web/HTML/html.md)
-- [css](Web/CSS/css.md)
+- [html](Web/01_html.md)
+- [css](Web/02_css.md)
+- [bootstrap](Web/03_bootstrap.md)
 
+## JavaScript
+- [javascript](JavaScript/javascript.md)
