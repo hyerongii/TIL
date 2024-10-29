@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    // 1.
+    const promiseObj = axios({
+      method: 'get',
+      url:  'https://api.thecatapi.com/v1/images/search'
+    })
+
+    // console.log(promiseObj) // Promise object
+
+    promiseObj
+      // 작업이 성공적으로 완료되었을 때 실행될 콜백 함수를 지정
+      .then((response) => {
+        console.log(response)  // Promise object
+        // console.log(response.data)  // Promise data
+      })
+
+      // 작업이 실패했을 때 실행될 콜백 함수를 지정
+      .catch((error) => {
+        console.error(error)
+      })
+
+      console.log('안녕하세요')  // 얘가 먼저 실행되고 위에 꺼 실행됨. call stack 에서 바로 나옴
+
+    // 2.
+    axios({
+      method:'get',
+      url: 'https://api.thecatapi.com/v1/images/search'
+    })
+      .then((response) => {
+        console.log(response)  // Promise object
+        console.log(response.data)  // Promise data
+      })
+
+      // 작업이 실패했을 때 실행될 콜백 함수를 지정
+      .catch((error) => {
+        console.error(error)
+      })
+  </script>
+
+</body>
+
+</html>
