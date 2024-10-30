@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Articles</h1>
+
+  {% if request.user.is_authenticated %}
+    <p>안녕하세요 {{ user.username }}</p>
+    <a href="{% url "accounts:profile" user.username %}">내 프로필</a>
+
+    <a href="{% url "articles:create" %}">CREATE</a>
+    <form action="{% url "accounts:logout" %}" method="POST">
+      {% csrf_token %}
+      <input type="submit" value="LOGOUT">
+    </form>
+    <form action="{% url "accounts:delete" %}" method="POST">
+      {% csrf_token %}
+      <input type="submit" value="회원탈퇴">
+    </form>
+    <a href="{% url "accounts:update" %}">회원정보 수정</a>
+  {% else %}
+    <a href="{% url "accounts:login" %}">LOGIN</a>
+    <a href="{% url "accounts:signup" %}">회원가입</a>
+  {% endif %}
+  
+  {% comment %} 1. 좋아요 form 요소를 포함하는 최상위 요소 작성 {% endcomment %}
+  <article class="article-container">
+    {% for article in articles %}
+      <a href="{% url "accounts:profile" article.user.username %}">
+        <p>작성자: {{ article.user.username }}</p>
+      </a>
+      <p>글 번호: {{ article.pk }}</p>
+      <a href="{% url "articles:detail" article.pk %}">
+        <p>글 제목: {{ article.title }}</p>
+      </a>
+      <p>글 내용: {{ article.content }}</p>
+      {% comment %} 좋아요 form 버튼 {% endcomment %}
+      {% comment %} 5. 좋아요 form 버튼의 action과 method 삭제 {% endcomment %}
+      {% comment %} 9. article.pk 부여 {% endcomment %}
+      <form data-article-id="{{ article.pk }}">
+        {% csrf_token %}
+        {% if request.user in article.like_users.all %}
+          {% comment %} 15. id 속성 값 버튼에 설정 {% endcomment %}
+          <input type="submit" value="좋아요 취소" id="like-{{ article.pk}}">
+        {% else %}
+          <input type="submit" value="좋아요" id="like-{{ article.pk}}">
+        {% endif %}
+      </form>
+      <hr>
+    {% endfor %}
+  </article>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    // 2. 게시글을 모두 포함하는 최상위 요소를 선택
+    const articleContainer = document.querySelector('.article-container')
+    // 7. csrf 선택
+    const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value
+
+    // 3. 선택한 최상위 요소에 이벤트 핸들러를 부착
+    articleContainer.addEventListener('submit', function (event) {
+      // 4. submit 이벤트 기본 동작 취소
+      event.preventDefault()
+      // 10. HTML에서 전달한 게시글 id 받기 - currentTarget이 아니라 target임
+      const articleId = event.target.dataset.articleId
+      // 6. axios 요청 작성
+      axios({
+        method:'post',
+        // 11. 전달받은 게시글 id로 url 완성
+        url:`/articles/${articleId}/likes/`,
+        // 8. 선택한 csrftoken 값을 요청 headers에 세팅
+        headers: {'X-CSRFToken': csrftoken,},
+      })
+        .then((response) => {
+          // 14. 응답 데이터 is_liked 받아서 isLiked 변수에 할당
+          const isLiked = response.data.is_liked
+          // 16. isLiked 에 따라 좋아요 버튼을 토글하기
+          const likeBtn = document.querySelector(`#like-${articleId}`)
+          if (isLiked === true) {
+            likeBtn.value = '좋아요 취소'
+          } 
+          else {
+            likeBtn.value = '좋아요'
+          }
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    })
+  </script>
+
+</body>
+</html>
