@@ -24,6 +24,7 @@ class Comment(models.Model):
 ```
 ### ForeignKey(to, on_delete)
 
+
 - 한 모델이 다른 모델을 참조하는 관계를 설정하는 필드
 
 > N:1 관계 구현
