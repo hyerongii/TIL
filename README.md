@@ -7,19 +7,23 @@
 ## Python
 - [python](Python/python.md)
 
-## Git
-- [CLI](Git/cli.md)
-- [git](Git/git.md)
+## Django
+- [django](Django/django.md)
 
-## Markdown
-- [markdown](Markdown/markdown.md)
+## JavaScript
+- [javascript](JavaScript/javascript.md)
 
 ## Web
 - [html](Web/01_html.md)
 - [css](Web/02_css.md)
 - [bootstrap](Web/03_bootstrap.md)
 
-## JavaScript
-- [javascript](JavaScript/javascript.md)
-
 ## Vue
+- [vue](Vue/vue.md)
+
+## Git
+- [CLI](Git/cli.md)
+- [git](Git/git.md)
+
+## Markdown
+- [markdown](Markdown/markdown.md)
