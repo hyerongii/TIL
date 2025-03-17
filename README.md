@@ -4,14 +4,15 @@
 ## Algorithm
 - [algorithm](Algorithm/algorithm.md)
 
-## Python
-- [python](Python/python.md)
+## Database
+- [SQL](Database/SQL/SQL.md) 
 
 ## Django
 - [django](Django/django.md)
 
-## JavaScript
-- [javascript](JavaScript/javascript.md)
+## Language
+- [python](Language/Python/python.md)
+- [javascript](Language/JavaScript/javascript.md)
 
 ## Web
 - [html](Web/01_html.md)
@@ -21,9 +22,12 @@
 ## Vue
 - [vue](Vue/vue.md)
 
-## Git
-- [CLI](Git/cli.md)
-- [git](Git/git.md)
+## React 
+- [react](React/리액트%20강의/)
+
+## Tool
+- [CLI](Tool/Git/cli.md)
+- [git](Tool/Git/git.md)
 
 ## Markdown
 - [markdown](Markdown/markdown.md)
